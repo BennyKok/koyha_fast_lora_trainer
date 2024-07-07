@@ -33,7 +33,7 @@ function startCaptioning(folderPaths: FolderPaths, formdata: FormData) {
     const scripPath = "finetune/tag_images_by_wd14_tagger.py";
     const device = formdata.get('CUDA_VISIBLE_DEVICES') || '0';
     
-    const command = `source \"./../venv/bin/activate\" && cd ../ && CUDA_VISIBLE_DEVICES=${device} python3 "${scripPath}" --batch_size="8" --general_threshold=0.35 --character_threshold=0.35 --caption_extension=".txt" --model="SmilingWolf/wd-v1-4-convnextv2-tagger-v2" --max_data_loader_n_workers="2" --remove_underscore "${dataDir}"`;
+    const command = `. \"./../venv/bin/activate\" && cd ../ && CUDA_VISIBLE_DEVICES=${device} python3 "${scripPath}" --batch_size="8" --general_threshold=0.35 --character_threshold=0.35 --caption_extension=".txt" --model="SmilingWolf/wd-v1-4-convnextv2-tagger-v2" --max_data_loader_n_workers="2" --remove_underscore "${dataDir}"`;
 
     console.log(command);
 
