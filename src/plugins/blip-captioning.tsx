@@ -35,7 +35,7 @@ function startCaptioning(folderPaths: FolderPaths, formdata: FormData) {
     const scripPath = "finetune/make_captions.py";
     const device = formdata.get('CUDA_VISIBLE_DEVICES') || '0';
 
-    const command = `source \"./../venv/bin/activate\" && cd ../ && CUDA_VISIBLE_DEVICES=${device} python3 "${scripPath}" --batch_size="1" --num_beams="1" --top_p="0.9" --max_length="75" --min_length="5" --beam_search --caption_extension=".txt" --caption_weights ${modelUrl} "${dataDir}"`;
+    const command = `. \"./../venv/bin/activate\" && cd ../ && CUDA_VISIBLE_DEVICES=${device} python3 "${scripPath}" --batch_size="1" --num_beams="1" --top_p="0.9" --max_length="75" --min_length="5" --beam_search --caption_extension=".txt" --caption_weights ${modelUrl} "${dataDir}"`;
 
     console.log(command);
 
